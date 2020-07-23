@@ -14,7 +14,7 @@ public class Main {
         System.out.println(mal.getCapacity());
         System.out.println(mal.size());
         for (int i = 0; i <11 ; i++) {
-            mal.add(rand.nextInt(100));
+            mal.add(rand.nextInt(1000));
         }
         mal.add(55);
         System.out.println(mal.size());

@@ -26,7 +26,7 @@ public class MyArrayList<T extends Comparable<T>> {
             list[size] = item;
             size++;
         } else {
-            this.listExpansion();       //autoexpansion 
+            this.listExpansion();       //autoexpansion works
             list[size] = item;
             size++;
         }
@@ -35,7 +35,7 @@ public class MyArrayList<T extends Comparable<T>> {
     public void add(int index, T item) {
         checkCorrectIndex(index);
         if (this.size == this.capacity) {
-            this.listExpansion();           //autoexpansion
+            this.listExpansion();           //autoexpansion works
             }
         for (int i = size; i > index; i--) {
                 list[i] = list[i - 1];
