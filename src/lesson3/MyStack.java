@@ -21,7 +21,8 @@ public class MyStack<T> {
 
     public void push(T item) {
         if (isFull()) {
-            this.reCapacity(size()*2);
+//            throw new StackOverflowError();
+            reCapacity(size * 2 + 1);
         }
         list[size] = item;
         size++;

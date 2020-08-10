@@ -5,54 +5,88 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+//        String[] strArr ;
+//        strArr = new String[5];
+//        String[] strArr1 ={"A", "BBBB","CCC"};
 
-        /*
-        * Testing of autoexpanse
-         */
-        MyArrayList<Integer> mal = new MyArrayList<>(10);
+//        int[] arr = new int[10];
+//
+//        for (int i = 0; i <arr.length ; i++) {
+//            arr[i] = i;
+//        }
+//
+//
+////
+////        for (int i = 0; i <arr.length ; i++) {
+////            if(arr[i] %2 == 0){
+////                arr[i]+=10;
+////            }
+////        }
+//
+//        System.out.println(Arrays.toString(arr));
+
+//        List<Integer> list = new ArrayList<>();
+//        list.add(5);
+//        list.addAll(Arrays.asList(3, 6, 7, 2, 43, 56, 2, 2, 5));
+//
+//        System.out.println(list);
+////        list.remove((Integer) 2);
+////        list.removeIf(x -> x > 5);
+////        list.removeAll(Arrays.asList(2));
+//        System.out.println(list);
+
+
+//        MyArrayList<Integer> mal = new MyArrayList<>();
+//        mal.add(5);
+//        mal.add(2);
+//        mal.add(1);
+//        mal.add(3);
+//        System.out.println(mal);
+//
+//        mal.add(4, 9);
+//        System.out.println(mal);
+
+//        mal.remove(9);
+//        System.out.println(mal);
+
+//        System.out.println(mal.indexOf(9));
+
+
+//       MySortedArrayList<Integer> msal = new MySortedArrayList<>();
+//        msal.add(5);
+//        msal.add(9);
+//        msal.add(2);
+//        msal.add(4);
+//        msal.add(1, 10);
+//
+//        System.out.println(msal);
+//
+//        System.out.println(msal.recBinaryFind(2));
+
+
+
+        MyArrayList<Integer> mal = new MyArrayList<>(1000000);
         Random rand = new Random();
-        System.out.println(mal.getCapacity());
-        System.out.println(mal.size());
-        for (int i = 0; i <11 ; i++) {
-            mal.add(rand.nextInt(1000));
+        for (int i = 0; i <1000000 ; i++) {
+            mal.add(rand.nextInt(1000000));
         }
-        mal.add(55);
-        System.out.println(mal.size());
-        System.out.println(mal);
-        mal.add(66);
-        mal.add(66);mal.add(66);mal.add(66);mal.add(66);mal.add(66);mal.add(66);mal.add(99);
-        System.out.println(mal.size());
-        System.out.println(mal.getCapacity());
-        mal.add(10,105);
-        System.out.println(mal);
 
-        /*
-        * Time testing + Sorted methods with comparator
-         */
-        long beginTime = System.nanoTime();
-//      mal.bubbleSort();                                     //40   seconds
-        mal.selectionSort(Comparator.reverseOrder());         //20   seconds
-//      mal.insertionSort(Comparator.reverseOrder());         //12.5 seconds
-//      mal.bubbleSort(Comparator.reverseOrder());
-        long deltaTime = System.nanoTime() - beginTime;
-        System.out.println(deltaTime * 1e-9f);
-        System.out.println(mal);
+        long begin = System.currentTimeMillis();
 
-        /*
-        * Testing of autoExpans on SortedList
-         */
-        MySortedArrayList<Integer> msal = new MySortedArrayList<>();
-        Random rand1 = new Random();
-        System.out.println(msal.getCapacity());
-        System.out.println(msal.size());
-        for (int i = 0; i <10 ; i++) {
-            msal.add(rand1.nextInt(100));
-        }
-        System.out.println(msal);
-        msal.add(50);
-        System.out.println(msal.getCapacity());
-        System.out.println(msal.size());
-        System.out.println(msal);
+//        mal.selectionSort();
+//        mal.insertionSort();
+//        mal.bubbleSort(Comparator.naturalOrder());
+//        mal.bubbleSort(Comparator.reverseOrder());
+//        mal.quickSort();// O(n * log n)
+        mal.timSort();
+
+        long end = System.currentTimeMillis();
+        System.out.println("time: "+ (end- begin)+" ms");
+
+
+
+
+//        System.out.println(mal);
 
 
 //        MyArrayList<String> myArrayList = new MyArrayList<>();
@@ -63,13 +97,13 @@ public class Main {
 //        myArrayList.add("AAAAA");
 //        myArrayList.add("xxx");
 //        myArrayList.add("YYYyy");
-
+//
 //        System.out.println(myArrayList);
-//        myArrayList.bubbleSort(Comparator.naturalOrder());
+////        myArrayList.bubbleSort(Comparator.naturalOrder());
 //        myArrayList.bubbleSort(Comparator.comparingInt(String::length));
-//        myArrayList.bubbleSort(Comparator.comparingInt(String::length).reversed());
-//        myArrayList.bubbleSort(Comparator.comparingInt(String::length).thenComparing(String::compareToIgnoreCase));
- //       System.out.println(myArrayList);
+////        myArrayList.bubbleSort(Comparator.comparingInt(String::length).reversed());
+////        myArrayList.bubbleSort(Comparator.comparingInt(String::length).thenComparing(String::compareToIgnoreCase));
+//        System.out.println(myArrayList);
     }
 
 }
