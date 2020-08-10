@@ -1,33 +1,19 @@
 package lesson3;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.EmptyStackException;
 
 public class MyPriorityQueue<T extends Comparable<T>> {
     private T[] list;
     private int size = 0;
     private final int DEFAULT_CAPACITY = 10;
-    private Comparator cmp = Comparator.naturalOrder();
 
-    public MyPriorityQueue(int capacity, Comparator cmp) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException("capacity " + capacity);
-        }
-        list = (T[]) new Comparable[capacity];
-        this.cmp = cmp;
-    }
 
     public MyPriorityQueue(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("capacity " + capacity);
         }
         list = (T[]) new Comparable[capacity];
-    }
-
-    public MyPriorityQueue(Comparator cmp) {
-        list = (T[]) new Comparable[DEFAULT_CAPACITY];
-        this.cmp = cmp;
     }
 
     public MyPriorityQueue() {
@@ -41,7 +27,7 @@ public class MyPriorityQueue<T extends Comparable<T>> {
         list[size] = item;
         size++;
         int i = size - 1;
-        while (i > 0 && cmp.compare(list[i],list[i - 1]) > 0) {
+        while (i > 0 && list[i].compareTo(list[i - 1]) > 0) {
             swap(i, i - 1);
             i--;
         }
